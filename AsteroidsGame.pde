@@ -1,45 +1,72 @@
-//your variable declarations here
+SpaceShip bob;
 public void setup() 
 {
-  //your code here
+  size(600,600);
+  bob = new SpaceShip();
+
 }
 public void draw() 
 {
-  //your code here
+  background(10, 16, 28);
+   bob.show();
+}
+
+public void keyPressed() {
+
+boolean kispressed = false;
+boolean eispressed = false;
+boolean vispressed = false;
+boolean iispressed = false;
+boolean nispressed = false;
+void keyTyped() {
+
+if(key == 'i')
+  iispressed = true;
+if(key == 'k')
+  kispressed = true;
+if(key == 'v')
+  vispressed = true;
+if(key == 'e')
+  eispressed = true;
+if(key == 'n')
+  nispressed = true;
+
+if(kispressed == true && eispressed == true && vispressed == true && iispressed== true; vispressed== true;)
+  {}
+}
+
+
+
 }
 class SpaceShip extends Floater  
 {   
-  protected int corners;  //the number of corners, a triangular floater has 3   
-  protected int[] xCorners;   
-  protected int[] yCorners;   
-  protected int myColor;   
-  protected double myCenterX, myCenterY; //holds center coordinates   
-  protected double myDirectionX, myDirectionY; //holds x and y coordinates of the vector for direction of travel   
-  protected double myPointDirection; //holds current direction the ship is pointing in degrees  
   SpaceShip(){
     corners = 3;
-    xCorners[0] = 1;
-    yCorners[0] = 1;
-    myColor = 255;
-    myCenterX = 200;
-    myCenterY = 200;
+    xCorners = new int [corners];
+    yCorners = new int [corners];
+    xCorners[0] = -10;
+    yCorners[0] = 10;
+    xCorners[1] = -10;
+    yCorners[1] = -10;
+    xCorners[2] = 20;
+    yCorners[2] = 0;
+    myColor = 254;
+    myCenterX = 300;
+    myCenterY = 300;
     myDirectionX = 0;
     myDirectionY = 0;
-    myPointDirection = 25; 
-
-
-
+    myPointDirection = 0; 
   }
-   public void setX(int x){xCorners = x;}  
-   public int xCorners(){return xCorners;}   
-   public void setY(int y){yCorners = y;}   
-   public int yCorners(){return yCorners;}   
+   public void setX(int x){myCenterX = x;}
+   public int getX(){return (int)myCenterX;}   
+   public void setY(int y){myCenterY = y;}   
+   public int getY(){return (int)myCenterY;}   
    public void setDirectionX(double x){myDirectionX = x;}   
-   public double myDirectionX(){return myDirectionX;}   
+   public double getDirectionX(){return myDirectionX;}   
    public void setDirectionY(double y){myDirectionY = y;}   
-   public double myDirectionY(){return myDirectionY;}   
+   public double getDirectionY(){return myDirectionY;}   
    public void setPointDirection(int degrees){myPointDirection = degrees;}   
-   public double myPointDirection(){return myPointDirection;} 
+   public double getPointDirection(){return myPointDirection;} 
 }
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
