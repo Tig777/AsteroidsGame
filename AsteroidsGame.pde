@@ -9,35 +9,29 @@ public void draw()
 {
   background(10, 16, 28);
    bob.show();
+   bob.move();
 }
 
-public void keyPressed() {
-
-boolean kispressed = false;
-boolean eispressed = false;
-boolean vispressed = false;
-boolean iispressed = false;
-boolean nispressed = false;
-void keyTyped() {
-
-if(key == 'i')
-  iispressed = true;
-if(key == 'k')
-  kispressed = true;
-if(key == 'v')
-  vispressed = true;
-if(key == 'e')
-  eispressed = true;
-if(key == 'n')
-  nispressed = true;
-
-if(kispressed == true && eispressed == true && vispressed == true && iispressed== true; vispressed== true;)
-  {}
+public void keyPressed() 
+{
+    
+    //if (key =='2')
+      //{
+        //bob.myCenterX = Math.random()*600;
+        //bob.myCenterY = Math.random()*600;
+       // bob. = 0;
+       // bob. = 0;
+      //}
+   if(key == 'w')
+      bob.accelerate(7);
+    if(key == 's')
+      bob.accelerate(-7);
+    if(key == 'a')
+      bob.rotate(-10);
+    if(key == 'd')
+      bob.rotate(10);
 }
 
-
-
-}
 class SpaceShip extends Floater  
 {   
   SpaceShip(){
@@ -145,3 +139,35 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
   }   
 } 
 
+
+
+
+
+
+
+
+
+/*boolean kispressed = false;
+boolean eispressed = false;
+boolean vispressed = false;
+boolean iispressed = false;
+boolean nispressed = false;
+void keyTyped() {
+
+if(key == 'i')
+  iispressed = true;
+if(key == 'k')
+  kispressed = true;
+if(key == 'v')
+  vispressed = true;
+if(key == 'e')
+  eispressed = true;
+if(key == 'n')
+  nispressed = true;
+
+if(kispressed == true && eispressed == true && vispressed == true && iispressed== true; vispressed== true;)
+  {
+
+  }
+}
+*/
