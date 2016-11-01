@@ -1,35 +1,62 @@
+
 SpaceShip bob;
+Stars [] star;
 public void setup() 
 {
   size(600,600);
   bob = new SpaceShip();
+  star = new Stars[50];
+  for (int i = 0; i < star.length; i++) {
+    star[i] = new Stars();
+  }
 
 }
 public void draw() 
 {
+ 
   background(10, 16, 28);
+     for (int i = 0; i < star.length; i++){
+   star[i].show();
+  }
    bob.show();
    bob.move();
-}
+  
+  }
 
+
+class Stars    
+  {     
+    int myX, myY;
+    Stars()
+    {
+      myY = (int)(Math.random()*600);
+      myX = (int)(Math.random()*600);  
+    }  
+  void show()
+  {
+    noStroke();
+    fill(int(random (253)),int(random(253)), int(random(253)));
+    ellipse(myX,myY, 5,5);
+  }
+}
 public void keyPressed() 
 {
     
-    //if (key =='2')
-      //{
-        //bob.myCenterX = Math.random()*600;
-        //bob.myCenterY = Math.random()*600;
-       // bob. = 0;
-       // bob. = 0;
-      //}
+   if(key == 'h')
+   {
+      bob.setX((int)(Math.random()*600));
+      bob.setY((int)(Math.random()*600));
+      bob.setDirectionX(0);
+      bob.setDirectionY(0);
+    }
    if(key == 'w')
-      bob.accelerate(7);
+      bob.accelerate(5);
     if(key == 's')
-      bob.accelerate(-7);
+      bob.accelerate(-5);
     if(key == 'a')
-      bob.rotate(-10);
+      bob.rotate(-30);
     if(key == 'd')
-      bob.rotate(10);
+      bob.rotate(30);
 }
 
 class SpaceShip extends Floater  
