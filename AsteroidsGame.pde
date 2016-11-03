@@ -44,10 +44,7 @@ public void keyPressed()
     
    if(key == 'h')
    {
-      bob.setX((int)(Math.random()*600));
-      bob.setY((int)(Math.random()*600));
-      bob.setDirectionX(0);
-      bob.setDirectionY(0);
+    bob.hyperSpace();
     }
    if(key == 'w')
       bob.accelerate(5);
@@ -58,7 +55,7 @@ public void keyPressed()
     if(key == 'd')
       bob.rotate(30);
 }
-
+//public void hyperspace
 class SpaceShip extends Floater  
 {   
   SpaceShip(){
@@ -88,6 +85,13 @@ class SpaceShip extends Floater
    public double getDirectionY(){return myDirectionY;}   
    public void setPointDirection(int degrees){myPointDirection = degrees;}   
    public double getPointDirection(){return myPointDirection;} 
+   public void hyperSpace(){
+      bob.setX((int)(Math.random()*600));
+      bob.setY((int)(Math.random()*600));
+      bob.setPointDirection((int)(Math.random()*600));
+      bob.setDirectionX(0);
+      bob.setDirectionY(0);
+   }
 }
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
