@@ -1,25 +1,38 @@
-
 SpaceShip bob;
 Stars [] star;
+Asteroids [] nick;
 public void setup() 
 {
   size(600,600);
   bob = new SpaceShip();
   star = new Stars[50];
-  for (int i = 0; i < star.length; i++) {
+  nick = new Asteroids[10];
+  for (int i = 0; i < star.length; i++) 
+  {
     star[i] = new Stars();
   }
-
+  for (int j = 0; j < nick.length; j++)
+  {
+    nick[j] = new Asteroids();
+  }
 }
 public void draw() 
 {
  
   background(10, 16, 28);
-     for (int i = 0; i < star.length; i++){
+  for (int i = 0; i < star.length; i++)
+  {
    star[i].show();
+  }
+  for (int j = 0; j < nick.length; j++)
+  {
+   nick[j].show();
+   nick[j].move();
   }
    bob.show();
    bob.move();
+  
+   
   
   }
 
@@ -55,7 +68,61 @@ public void keyPressed()
     if(key == 'd')
       bob.rotate(30);
 }
-//public void hyperspace
+
+class Asteroids extends Floater
+{
+  Asteroids(){
+    corners = 5;
+    xCorners = new int [corners];
+    yCorners = new int [corners];
+    xCorners[0] = 0;
+    yCorners[0] = 0;
+    xCorners[1] = 50;
+    yCorners[1] = 20;
+    xCorners[2] = 80;
+    yCorners[2] = 80;
+    xCorners[3] = 40;
+    yCorners[3] = 80;
+    xCorners[4] = 20;
+    yCorners[4] = 100;
+   
+    
+
+    /*
+    xCorners[5] = -6;
+    yCorners[5] = 9;
+    xCorners[6] = -8;
+    yCorners[6] = 11;
+    xCorners[7] = -10;
+    yCorners[7] = -9;
+    xCorners[8] = 9;
+    yCorners[8] = 4;
+    xCorners[9] = -4;
+    yCorners[9] = 2;
+    */
+    myColor = 50;
+    myCenterX = 200;
+    myCenterY = 200;
+    myDirectionX = 0;
+    myDirectionY = 0;
+    myPointDirection = 0; 
+  }
+  public void setX(int x){myCenterX = x;}
+   public int getX(){return (int)myCenterX;}   
+   public void setY(int y){myCenterY = y;}   
+   public int getY(){return (int)myCenterY;}   
+   public void setDirectionX(double x){myDirectionX = x;}   
+   public double getDirectionX(){return myDirectionX;}   
+   public void setDirectionY(double y){myDirectionY = y;}   
+   public double getDirectionY(){return myDirectionY;}   
+   public void setPointDirection(int degrees){myPointDirection = degrees;}   
+   public double getPointDirection(){return myPointDirection;} 
+}
+
+
+
+
+
 class SpaceShip extends Floater  
 {   
   SpaceShip(){
@@ -169,36 +236,3 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
     endShape(CLOSE);  
   }   
 } 
-
-
-
-
-
-
-
-
-
-/*boolean kispressed = false;
-boolean eispressed = false;
-boolean vispressed = false;
-boolean iispressed = false;
-boolean nispressed = false;
-void keyTyped() {
-
-if(key == 'i')
-  iispressed = true;
-if(key == 'k')
-  kispressed = true;
-if(key == 'v')
-  vispressed = true;
-if(key == 'e')
-  eispressed = true;
-if(key == 'n')
-  nispressed = true;
-
-if(kispressed == true && eispressed == true && vispressed == true && iispressed== true; vispressed== true;)
-  {
-
-  }
-}
-*/
