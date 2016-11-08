@@ -31,10 +31,7 @@ public void draw()
   }
    bob.show();
    bob.move();
-  
-   
-  
-  }
+}
 
 
 class Stars    
@@ -71,7 +68,9 @@ public void keyPressed()
 
 class Asteroids extends Floater
 {
-  Asteroids(){
+  private double myRotSpeed = (int)(Math.random()*2)-1;
+
+  public Asteroids(){
     corners = 5;
     xCorners = new int [corners];
     yCorners = new int [corners];
@@ -85,21 +84,6 @@ class Asteroids extends Floater
     yCorners[3] = 80;
     xCorners[4] = 20;
     yCorners[4] = 100;
-   
-    
-
-    /*
-    xCorners[5] = -6;
-    yCorners[5] = 9;
-    xCorners[6] = -8;
-    yCorners[6] = 11;
-    xCorners[7] = -10;
-    yCorners[7] = -9;
-    xCorners[8] = 9;
-    yCorners[8] = 4;
-    xCorners[9] = -4;
-    yCorners[9] = 2;
-    */
     myColor = 50;
     myCenterX = 200;
     myCenterY = 200;
@@ -107,6 +91,13 @@ class Asteroids extends Floater
     myDirectionY = 0;
     myPointDirection = 0; 
   }
+    public void move ()
+  { 
+    myCenterX += myRotSpeed;    
+    myCenterY += myRotSpeed;     
+    rotate((int)myRotSpeed);
+    super.move();  
+   }
   public void setX(int x){myCenterX = x;}
    public int getX(){return (int)myCenterX;}   
    public void setY(int y){myCenterY = y;}   
@@ -118,10 +109,6 @@ class Asteroids extends Floater
    public void setPointDirection(int degrees){myPointDirection = degrees;}   
    public double getPointDirection(){return myPointDirection;} 
 }
-
-
-
-
 
 class SpaceShip extends Floater  
 {   
@@ -236,3 +223,19 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
     endShape(CLOSE);  
   }   
 } 
+
+
+
+
+    /*
+    xCorners[5] = -6;
+    yCorners[5] = 9;
+    xCorners[6] = -8;
+    yCorners[6] = 11;
+    xCorners[7] = -10;
+    yCorners[7] = -9;
+    xCorners[8] = 9;
+    yCorners[8] = 4;
+    xCorners[9] = -4;
+    yCorners[9] = 2;
+    */
