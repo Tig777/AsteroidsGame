@@ -6,11 +6,12 @@ public void setup()
   size(600,600);
   bob = new SpaceShip();
   star = new Stars[50];
-  nick = new Asteroids[10];
+  nick = new Asteroids[7];
   for (int i = 0; i < star.length; i++) 
   {
     star[i] = new Stars();
   }
+  
   for (int j = 0; j < nick.length; j++)
   {
     nick[j] = new Asteroids();
@@ -31,6 +32,7 @@ public void draw()
   }
    bob.show();
    bob.move();
+
 }
 
 
@@ -84,12 +86,12 @@ class Asteroids extends Floater
     yCorners[3] = 80;
     xCorners[4] = 20;
     yCorners[4] = 100;
-    myColor = 50;
-    myCenterX = 200;
-    myCenterY = 200;
-    myDirectionX = 0;
-    myDirectionY = 0;
-    myPointDirection = 0; 
+    myColor = 243;
+    myCenterX = 300; 
+    myCenterY = 300; 
+    myDirectionX =0;
+    myDirectionY =0;
+    myPointDirection = (int)(Math.random()*600);
   }
     public void move ()
   { 
