@@ -6,7 +6,7 @@ public void setup()
   size(600,600);
   bob = new SpaceShip();
   star = new Stars[50];
-  nick = new Asteroids[7];
+  nick = new Asteroids[6];
   for (int i = 0; i < star.length; i++) 
   {
     star[i] = new Stars();
@@ -99,14 +99,12 @@ class Asteroids extends Floater
     myColor = 243;
     myCenterX = 300; 
     myCenterY = 300; 
-    myDirectionX =0;
-    myDirectionY =0;
-    myPointDirection = (int)(Math.random()*600);
+    myDirectionX = Math.random()*6-3;
+    myDirectionY = Math.random()*6-3;
+    myPointDirection = 0;
   }
     public void move ()
-  { 
-    myCenterX += myRotSpeed;    
-    myCenterY += myRotSpeed;     
+  {      
     rotate((int)myRotSpeed);
     super.move();  
    }
@@ -239,15 +237,3 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
 
 
 
-    /*
-    xCorners[5] = -6;
-    yCorners[5] = 9;
-    xCorners[6] = -8;
-    yCorners[6] = 11;
-    xCorners[7] = -10;
-    yCorners[7] = -9;
-    xCorners[8] = 9;
-    yCorners[8] = 4;
-    xCorners[9] = -4;
-    yCorners[9] = 2;
-    */
