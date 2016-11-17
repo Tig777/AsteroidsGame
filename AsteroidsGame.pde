@@ -70,7 +70,8 @@ public void keyPressed()
 
 class Asteroids extends Floater
 {
-  private int rotSpeed = (int)(Math.random()*8)-4;
+  private int rotSpeed;
+  private int rotation = (int)(Math.random()*5)-2;
 
   public Asteroids(){
     corners = 4;
@@ -85,15 +86,17 @@ class Asteroids extends Floater
     xCorners[3] = 10;
     yCorners[3] = 45;
     myColor = 125;
-    myCenterX =  Math.random()*600-3; 
-    myCenterY =  Math.random()*600-3; 
+    myCenterX = 300; 
+    myCenterY = 300; 
     myDirectionX = Math.random()*5-2;
     myDirectionY = Math.random()*5-2;
-    myPointDirection =  Math.random()*2;
+    myPointDirection =  0;
   }
+    
     public void move()
   {      
     rotate(rotSpeed);
+    rotate(rotation);
     super.move(); 
   }
 
