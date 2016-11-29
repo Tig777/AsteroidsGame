@@ -1,34 +1,41 @@
 SpaceShip bob;
 Stars [] star;
-Asteroids [] nick;
+ArrayList <Asteroids> nick;
+
 public void setup() 
 {
   size(600,600);
   bob = new SpaceShip();
+
   star = new Stars[50];
-  nick = new Asteroids[7];
+
+  nick = new ArrayList <Asteroids>();
+  
+
   for (int i = 0; i < star.length; i++) 
   {
     star[i] = new Stars();
   }
   
-  for (int j = 0; j < nick.length; j++)
+  for (int j = 0; j < 7; j++)
   {
-    nick[j] = new Asteroids();
+    nick.add(new Asteroids());
   }
 }
 public void draw() 
 {
  
   background(10, 16, 28);
-  for (int i = 0; i < star.length; i++)
+
+  for (int i = 0; i < star.length; i++) //stars
   {
    star[i].show();
   }
-  for (int j = 0; j < nick.length; j++)
+
+  for (int j = 0; j < 7; j++) //Asteroids
   {
-   nick[j].show();
-   nick[j].move();
+   nick.get(j).show();
+   nick.get(j).move();
   }
    bob.show();
    bob.move();
@@ -74,17 +81,31 @@ class Asteroids extends Floater
   private int rotation = (int)(Math.random()*5)-2;
 
   public Asteroids(){
-    corners = 4;
+    corners = 11;
     xCorners = new int [corners];
     yCorners = new int [corners];
-    xCorners[0] = 10;
-    yCorners[0] = 10;
-    xCorners[1] = 50;
+    xCorners[0] = -15;
+    yCorners[0] = 0;
+    xCorners[1] = -20;
     yCorners[1] = 10;
-    xCorners[2] = 50;
-    yCorners[2] = 45;
-    xCorners[3] = 10;
-    yCorners[3] = 45;
+    xCorners[2] = -10;
+    yCorners[2] = 20;
+    xCorners[3] = 5;
+    yCorners[3] = 20;
+    xCorners[4] = 15;
+    yCorners[4] = 23;
+    xCorners[5] = 25;
+    yCorners[5] = 10;
+    xCorners[6] = 20;
+    yCorners[6] = -15;
+    xCorners[7] = 10;
+    yCorners[7] = -13;
+    xCorners[8] = 5;
+    yCorners[8] = -20;
+    xCorners[9] = -10;
+    yCorners[9] = -20;
+    xCorners[10] = -20;
+    yCorners[10] = -10;
     myColor = 125;
     myCenterX = 300; 
     myCenterY = 300; 
@@ -116,15 +137,27 @@ class Asteroids extends Floater
 class SpaceShip extends Floater  
 {   
   SpaceShip(){
-    corners = 3;
+     corners = 9;
     xCorners = new int [corners];
     yCorners = new int [corners];
-    xCorners[0] = -10;
-    yCorners[0] = 10;
-    xCorners[1] = -10;
-    yCorners[1] = -10;
-    xCorners[2] = 20;
-    yCorners[2] = 0;
+    xCorners[0] = 30;
+    yCorners[0] = 0;
+    xCorners[1] = 15;
+    yCorners[1] = 10;
+    xCorners[2] = 0;
+    yCorners[2] = 10;
+    xCorners[3] = -25;
+    yCorners[3] = 20;
+    xCorners[4] = -15;
+    yCorners[4] = 10;
+    xCorners[5] = -15;
+    yCorners[5] = -10;
+    xCorners[6] = -25;
+    yCorners[6] = -20;
+    xCorners[7] = 0;
+    yCorners[7] = -10;
+    xCorners[8] = 15;
+    yCorners[8] = -10;
     myColor = 254;
     myCenterX = 300;
     myCenterY = 300;
