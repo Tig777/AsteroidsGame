@@ -1,6 +1,7 @@
 SpaceShip bob;
 Stars [] star;
 ArrayList <Asteroids> nick;
+ArrayList <Bullets> kev;
 
 public void setup() 
 {
@@ -10,18 +11,30 @@ public void setup()
   star = new Stars[50];
 
   nick = new ArrayList <Asteroids>();
-  
+
+  kev = new ArrayList <Bullets>();
 
   for (int i = 0; i < star.length; i++) 
   {
     star[i] = new Stars();
   }
   
-  for (int j = 0; j < 7; j++)
+  for (int j = 0; j < 5; j++)
   {
     nick.add(new Asteroids());
   }
+
+  for (int k = 0; k < 1; k++)
+  {
+    kev.add(new Bullets());
+  }
 }
+
+
+
+
+
+
 public void draw() 
 {
  
@@ -32,11 +45,18 @@ public void draw()
    star[i].show();
   }
 
-  for (int j = 0; j < 7; j++) //Asteroids
+  for (int j = 0; j < 5; j++) //Asteroids
   {
    nick.get(j).show();
    nick.get(j).move();
   }
+
+for (int k = 0; k < 1; k++) //Bullets
+  {
+   kev.get(k).show();
+   kev.get(k).move();
+  }
+
    bob.show();
    bob.move();
 
@@ -73,6 +93,10 @@ public void keyPressed()
       bob.rotate(-30);
     if(key == 'd')
       bob.rotate(30);
+    /*
+    if(key == ' ')
+      kev.move();
+    */
 }
 
 class Asteroids extends Floater
@@ -83,7 +107,7 @@ class Asteroids extends Floater
   public Asteroids(){
     corners = 11;
     xCorners = new int [corners];
-    yCorners = new int [corners];
+    yCorners = new int [corners]; 
     xCorners[0] = -15;
     yCorners[0] = 0;
     xCorners[1] = -20;
@@ -134,10 +158,52 @@ class Asteroids extends Floater
    public double getPointDirection(){return myPointDirection;} 
 }
 
-class SpaceShip extends Floater  
+
+class Bullets extends Floater  // I has Answer!
+{   
+  Bullets()
+   {
+  corners = 4;
+  xCorners = new int [corners];
+  yCorners = new int [corners]; 
+  xCorners[0] = 10;
+  yCorners[0] = 10;
+  xCorners[1] = 20;
+  yCorners[1] = 10;
+  xCorners[2] = 20;
+  yCorners[2] = 15;
+  xCorners[3] = 10;
+  yCorners[3] = 15;
+  myColor = 254;
+  myCenterX = 300;
+  myCenterY = 300;
+  myDirectionX = 50;
+  myDirectionY = 10;
+  myPointDirection = 10; 
+    }
+   public void setX(int x){myCenterX = x;}
+   public int getX(){return (int)myCenterX;}   
+   public void setY(int y){myCenterY = y;}   
+   public int getY(){return (int)myCenterY;}   
+   public void setDirectionX(double x){myDirectionX = x;}   
+   public double getDirectionX(){return myDirectionX;}   
+   public void setDirectionY(double y){myDirectionY = y;}   
+   public double getDirectionY(){return myDirectionY;}   
+   public void setPointDirection(int degrees){myPointDirection = degrees;}   
+   public double getPointDirection(){return myPointDirection;} 
+   
+   public void move()
+   {        //Take the asteroids and spaceship's move function as reference
+   super.move();
+   }
+
+}
+
+
+class SpaceShip extends Floater  // I has Answer!
 {   
   SpaceShip(){
-     corners = 9;
+    corners = 9;
     xCorners = new int [corners];
     yCorners = new int [corners];
     xCorners[0] = 30;
@@ -175,6 +241,7 @@ class SpaceShip extends Floater
    public double getDirectionY(){return myDirectionY;}   
    public void setPointDirection(int degrees){myPointDirection = degrees;}   
    public double getPointDirection(){return myPointDirection;} 
+   
    public void hyperSpace(){
       bob.setX((int)(Math.random()*600));
       bob.setY((int)(Math.random()*600));
@@ -183,6 +250,8 @@ class SpaceShip extends Floater
       bob.setDirectionY(0);
    }
 }
+
+
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
   protected int corners;  //the number of corners, a triangular floater has 3   
