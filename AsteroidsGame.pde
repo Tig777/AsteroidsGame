@@ -1,7 +1,7 @@
 SpaceShip bob;
 Stars [] star;
 ArrayList <Asteroids> nick;
-ArrayList <Bullets> kev;
+/*ArrayList <Bullets> kev;*/
 
 public void setup() 
 {
@@ -11,9 +11,9 @@ public void setup()
   star = new Stars[50];
 
   nick = new ArrayList <Asteroids>();
-
+/*
   kev = new ArrayList <Bullets>();
-
+*/
   for (int i = 0; i < star.length; i++) 
   {
     star[i] = new Stars();
@@ -23,11 +23,12 @@ public void setup()
   {
     nick.add(new Asteroids());
   }
-
+/*
   for (int k = 0; k < 1; k++)
   {
     kev.add(new Bullets());
   }
+  */
 }
 
 
@@ -50,13 +51,13 @@ public void draw()
    nick.get(j).show();
    nick.get(j).move();
   }
-
+/*
 for (int k = 0; k < 1; k++) //Bullets
   {
    kev.get(k).show();
    kev.get(k).move();
   }
-
+*/
    bob.show();
    bob.move();
 
@@ -145,7 +146,7 @@ class Asteroids extends Floater
     super.move(); 
   }
 
-  
+
   public void setX(int x){myCenterX = x;}
    public int getX(){return (int)myCenterX;}   
    public void setY(int y){myCenterY = y;}   
@@ -158,7 +159,7 @@ class Asteroids extends Floater
    public double getPointDirection(){return myPointDirection;} 
 }
 
-
+/*
 class Bullets extends Floater  // I has Answer!
 {   
   Bullets()
@@ -199,7 +200,7 @@ class Bullets extends Floater  // I has Answer!
 
 }
 
-
+*/
 class SpaceShip extends Floater  // I has Answer!
 {   
   SpaceShip(){
