@@ -19,9 +19,11 @@ public void setup()
     star[i] = new Stars();
   }
   
-  for (int j = 0; j < 5; j++)
+  for (int j = 0; j < 10; j++)
   {
     nick.add(new Asteroids());
+
+   }
   }
 /*
   for (int k = 0; k < 1; k++)
@@ -29,7 +31,7 @@ public void setup()
     kev.add(new Bullets());
   }
   */
-}
+
 
 
 
@@ -46,10 +48,14 @@ public void draw()
    star[i].show();
   }
 
-  for (int j = 0; j < 5; j++) //Asteroids
+  for (int j = 0; j < nick.size(); j++) //Asteroids
   {
    nick.get(j).show();
    nick.get(j).move();
+   if(dist(bob.getX(),bob.getY(),nick.get(j).getX(),nick.get(j).getY())<30)
+   {
+   nick.remove(j);
+   } 
   }
 /*
 for (int k = 0; k < 1; k++) //Bullets
@@ -132,8 +138,8 @@ class Asteroids extends Floater
     xCorners[10] = -20;
     yCorners[10] = -10;
     myColor = 125;
-    myCenterX = 300; 
-    myCenterY = 300; 
+    myCenterX =  Math.random()*5-2; 
+    myCenterY =  Math.random()*5-2; 
     myDirectionX = Math.random()*5-2;
     myDirectionY = Math.random()*5-2;
     myPointDirection =  0;
