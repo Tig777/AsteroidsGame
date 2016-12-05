@@ -10,8 +10,21 @@ class Bullet extends Floater
   myDirectionX = 5 * Math.cos(dRadians) + 300;
   myDirectionY = 5 * Math.sin(dRadians) + 300 ;
   myPointDirection =0;
-  
     }
+
+
+public void show()
+{
+  
+}
+
+
+
+
+
+
+
+
    public void setX(int x){myCenterX = x;}
    public int getX(){return (int)myCenterX;}   
    public void setY(int y){myCenterY = y;}   
