@@ -51,6 +51,7 @@ public void draw()
   }
    bob.show();
    bob.move();
+   
 
 }
 
