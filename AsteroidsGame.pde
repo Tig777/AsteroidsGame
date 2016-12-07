@@ -1,7 +1,7 @@
 SpaceShip bob;
 Stars [] star;
 ArrayList <Asteroids> nick;
-
+ArrayList <Bullet> hello;
 
 public void setup() 
 {
@@ -11,6 +11,8 @@ public void setup()
   star = new Stars[50];
 
   nick = new ArrayList <Asteroids>();
+  hello = new ArrayList <Bullet>();
+  
 
   for (int i = 0; i < star.length; i++) 
   {
@@ -42,16 +44,27 @@ public void draw()
 
   for (int j = 0; j < nick.size(); j++) //Asteroids
   {
-   nick.get(j).show();
-   nick.get(j).move();
-   if(dist(bob.getX(),bob.getY(),nick.get(j).getX(),nick.get(j).getY())<30)
-   {
-   nick.remove(j);
-   } 
+     nick.get(j).show();
+     nick.get(j).move();
+     if(dist(bob.getX(),bob.getY(),nick.get(j).getX(),nick.get(j).getY())<30)
+     {
+      nick.remove(j);
+     } 
   }
+  for(int i = 0; i < hello.size(); i++)//Bullet
+   {
+      hello.get(i).show();
+      hello.get(i).move(); 
+     
+   } 
+
    bob.show();
    bob.move();
-   
+  
+
+  
+
+
 
 }
 
@@ -86,6 +99,8 @@ public void keyPressed()
       bob.rotate(-30);
     if(key == 'd')
       bob.rotate(30);
+    if(key == ' ')
+      hello.add(new Bullet(bob));
 }
 
 class Asteroids extends Floater
