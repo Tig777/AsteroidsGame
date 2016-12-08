@@ -19,7 +19,7 @@ public void setup()
     star[i] = new Stars();
   }
   
-  for (int j = 0; j < 10; j++)
+  for (int j = 0; j < 20; j++)
   {
     nick.add(new Asteroids());
 
@@ -61,12 +61,23 @@ public void draw()
    bob.show();
    bob.move();
   
-
+for(int h=0;h<hello.size();h++){
+    for(int k=0;k<nick.size();k++){
+      if(dist(hello.get(h).getX(),hello.get(h).getY(),nick.get(k).getX(),nick.get(k).getY())<20)
+      {
+        nick.remove(k);
+        hello.remove(h);
+        break;
+      }
+    }
+  }
   
 
 
 
 }
+
+
 
 
 class Stars    
@@ -96,9 +107,9 @@ public void keyPressed()
     if(key == 's')
       bob.accelerate(-5);
     if(key == 'a')
-      bob.rotate(-30);
+      bob.rotate(-10);
     if(key == 'd')
-      bob.rotate(30);
+      bob.rotate(10);
     if(key == ' ')
       hello.add(new Bullet(bob));
 }

@@ -7,8 +7,8 @@ class Bullet extends Floater
   myCenterY = bob.getY();
   myPointDirection = bob.getPointDirection();
   double dRadians =myPointDirection*(Math.PI/180); 
-  myDirectionX = 10 * Math.cos(dRadians) + bob.getDirectionX();
-  myDirectionY = 10 * Math.sin(dRadians) + bob.getDirectionY();
+  myDirectionX = 15 * Math.cos(dRadians) + bob.getDirectionX();
+  myDirectionY = 15 * Math.sin(dRadians) + bob.getDirectionY();
   
     }
 
